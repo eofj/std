@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 기본 테마 -->
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#6200EE</item>
+        <item name="colorPrimaryVariant">#3700B3</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+    </style>
+
+    <!-- ⭐ 커스텀 RatingBar 스타일 -->
+    <style name="CustomRatingBar" parent="@android:style/Widget.Material.RatingBar">
+        <item name="android:progressTint">@color/rating_active</item>
+        <item name="android:secondaryProgressTint">@color/rating_half</item>
+        <item name="android:progressBackgroundTint">@color/rating_bg</item>
+    </style>
+</resources>

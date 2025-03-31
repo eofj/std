@@ -1,0 +1,189 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="bold"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    android:nestedScrollingEnabled="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:weightSum="1"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- 위치 정보 표시 -->
+        <TextView
+            android:id="@+id/current_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:drawableLeft="@drawable/ic_location"
+            android:gravity="center"
+            android:text="인천 서구 서곶로 284"
+            android:textColor="@color/colorSelected"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="내 주변 찐맛집을 찾아보세요!"
+            android:textSize="16sp" />
+
+        <!-- 검색 기능 -->
+        <EditText
+            android:id="@+id/search_box"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="12dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext_round"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:hint="오늘 뭐 먹을까?"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <!-- 음식 카테고리 RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categories_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
+
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_round"
+            android:backgroundTint="#FFC7C7"
+            android:gravity="center"
+            android:text="오늘의 추천 메뉴!"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            style="bold"/>
+
+        <!--  랜덤 추천 식당 카드 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/recommendation_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 식당 이미지 -->
+                <ImageView
+                    android:id="@+id/recommendation_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_wait" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- 식당 정보 -->
+                    <TextView
+                        android:id="@+id/recommendation_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1.5"
+                        android:text="추천 식당"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/recommendation_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="0.5"
+                        android:gravity="right"
+                        android:text="⭐ 0.0"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/recommendation_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="📍 추천 메뉴: -"
+                    android:textSize="16sp" />
+
+
+                <!-- 버튼 레이아웃 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- 가게 보기 버튼 -->
+                    <Button
+                        android:id="@+id/btn_view_restaurant"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFC7C7"
+                        android:text="가게 보기"
+                        android:textStyle="bold" />
+
+                    <!-- 랜덤 추천 버튼 -->
+                    <Button
+                        android:id="@+id/btn_random_restaurant"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFC7C7"
+                        android:text="다른 가게 추천"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 광고 배너를 감싸는 FrameLayout (중요) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginTop="10dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/ad_banner_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="true"
+                android:paddingStart="40dp"
+                android:paddingEnd="80dp" />
+        </FrameLayout>
+
+    </LinearLayout>
+</ScrollView>

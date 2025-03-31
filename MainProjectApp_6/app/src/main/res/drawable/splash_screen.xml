@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/white"/> <!-- 배경 색상 설정 -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/sp" /> <!-- 앱 실행 시 표시할 이미지 -->
+    </item>
+</layer-list>
